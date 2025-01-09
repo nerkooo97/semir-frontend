@@ -1,0 +1,51 @@
+$form-bg: #f9f9f9;
+$form-border: #ddd;
+$form-radius: 5px;
+$error-color: #ff4d4d;
+
+form {
+  background-color: $form-bg;
+  padding: 20px;
+  border: 1px solid $form-border;
+  border-radius: $form-radius;
+  max-width: 400px;
+  margin: 20px auto;
+
+  .form-group {
+    margin-bottom: 15px;
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid $form-border;
+      border-radius: $form-radius;
+    }
+
+    .error {
+      color: $error-color;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+  }
+
+  .btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: $form-radius;
+    cursor: pointer;
+    width: 100%;
+
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+}
