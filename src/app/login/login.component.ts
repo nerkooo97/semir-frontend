@@ -24,7 +24,7 @@ export class LoginComponent {
     console.log('Attempting to log in user with the following details:', this.loginForm.value);
 
     try {
-      const response = await fetch('http://localhost:3000/api/login', {
+      const response = await fetch('http://localhost:4000/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
