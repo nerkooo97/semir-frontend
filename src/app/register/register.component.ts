@@ -15,7 +15,6 @@ export class RegisterComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private registerService: RegisterService
   ) {
     this.registrationForm = this.fb.group({
       firstName: ['', Validators.required],
@@ -27,18 +26,6 @@ export class RegisterComponent {
   }
 
   async onSubmit(): Promise<void> {
-    if (this.registrationForm.valid) {
-      try {
-        const response = await this.registerService.registerUser(this.registrationForm.value);
-        console.log('User registered successfully!', response);
-      } catch (error) {
-        console.error('Error:', error);
-      }
-    if (this.registrationForm.invalid) {
-      alert('Please fill out all required fields correctly.');
-      return;
-    }
-
     console.log('Attempting to register user with the following details:', this.registrationForm.value);
 
     try {
@@ -56,13 +43,12 @@ export class RegisterComponent {
 
       const data = await response.json();
       console.log('Registration successful:', data);
-      this.router.navigate(['/success']);
+      this.router.navigate(['/login']);
     } catch (error) {
       console.error('Registration failed. Error details:', error);
       alert('Registration failed. Please try again.');
     }
   }
-}
 
 }
 
